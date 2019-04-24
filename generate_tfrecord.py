@@ -24,7 +24,8 @@ def class_text_to_int(row_label):
 
     for cat_id, cat_name in enumerate(categories):
         if row_label == cat_name:
-            return cat_id
+            # needs to be min 1
+            return cat_id + 1
         else:
             None
 
