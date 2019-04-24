@@ -126,6 +126,16 @@ if __name__ == '__main__':
     categories = xml_to_csv.create_csv(store_directory)
 
     ##########################################################################
+    #               CREATE LABELMAP           (store in this directory)      #
+    ##########################################################################
+
+    with open("object-detection.pbtxt", "a") as file:
+        for val, item in enumerate(categories):
+            entry = 'item {\n name: "' + item + '"\n id: ' + str(val + 1) + '\n}\n'
+            file.write(entry)
+
+
+    ##########################################################################
     #               CREATING TFRECORD         (store in current directory)   #
     ##########################################################################
 
