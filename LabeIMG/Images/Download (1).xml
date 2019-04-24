@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Images</folder>
+	<filename>Download (1).jpg</filename>
+	<path>C:\Users\Gurka\Desktop\easyObjDetect\LabeIMG\Images\Download (1).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>135</width>
+		<height>90</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Hand</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>48</xmin>
+			<ymin>9</ymin>
+			<xmax>112</xmax>
+			<ymax>85</ymax>
+		</bndbox>
+	</object>
+</annotation>
