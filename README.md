@@ -19,7 +19,7 @@ TF_records should be created.
 
 ### Train the model
 in the same dir run: 
-``python train.py --logtostderr --train_dir=train/ --pipeline_config_path=model/cusom_pipeline.config``
+``python train.py --logtostderr --train_dir=train/ --pipeline_config_path=model/custom_pipeline.config``
 alternatively try:
 ``python model_main.py --logtostderr --train_dir=train/ --pipeline_config_path=model/cusom_pipeline.config``
 

@@ -131,7 +131,7 @@ if __name__ == '__main__':
             entry += 'item {\n name: "' + item + '"\n id: ' + str(val + 1) + '\n}\n'
         file.write(entry)
 
-    edit_config_file_mobilenet_V1("model/pipeline.config", "model/cusom_pipeline.config", len(categories))
+    edit_config_file_mobilenet_V1("model/pipeline.config", "model/custom_pipeline.config", len(categories))
     ##########################################################################
     #               CREATING TFRECORD         (store in current directory)   #
     ##########################################################################
