@@ -23,4 +23,4 @@ in the same dir run:
 alternatively try:
 ``python model_main.py --logtostderr --train_dir=train/ --pipeline_config_path=model/cusom_pipeline.config``
 
-
+in case docker returns "killed" try to reduce the "batch_size" field in model/custom_pipeline.config to something smaller.
