@@ -18,6 +18,7 @@ import tensorflow as tf
 from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
+from prepare_config_file import edit_config_file_mobilenet_V1
 
 # TO-DO replace this with label map
 def class_text_to_int(row_label):
@@ -130,7 +131,7 @@ if __name__ == '__main__':
             entry += 'item {\n name: "' + item + '"\n id: ' + str(val + 1) + '\n}\n'
         file.write(entry)
 
-
+    edit_config_file_mobilenet_V1("model/pipeline.config", "model/cusom_pipeline.config", len(categories))
     ##########################################################################
     #               CREATING TFRECORD         (store in current directory)   #
     ##########################################################################
