@@ -79,21 +79,16 @@ def create_tf_example(group, path):
 
 def main(_):
     for directory in ["train", "test"]:
-        # make if not existent
-        if not os.path.exists("./out"):
-            os.makedirs("./out")
-        writer = tf.python_io.TFRecordWriter("out/{}.record".format(directory))
+        writer = tf.python_io.TFRecordWriter("data/{}.record".format(directory))
         path = os.path.join("images", directory)
         examples = pd.read_csv("data/{}_labels.csv".format(directory))
         grouped = split(examples, 'filename')
         for group in grouped:
-            print("group is", group)
-            print(path)
             tf_example = create_tf_example(group, path)
             writer.write(tf_example.SerializeToString())
 
         writer.close()
-        output_path = os.path.join(os.getcwd(), "out/{}.record".format(directory))
+        output_path = os.path.join(os.getcwd(), "data/{}.record".format(directory))
         print('Successfully created the TFRecords: {}'.format(output_path))
 
 
@@ -129,10 +124,11 @@ if __name__ == '__main__':
     #               CREATE LABELMAP           (store in this directory)      #
     ##########################################################################
 
-    with open("object-detection.pbtxt", "a") as file:
+    with open("object-detection.pbtxt", "w") as file:
+        entry = ""
         for val, item in enumerate(categories):
-            entry = 'item {\n name: "' + item + '"\n id: ' + str(val + 1) + '\n}\n'
-            file.write(entry)
+            entry += 'item {\n name: "' + item + '"\n id: ' + str(val + 1) + '\n}\n'
+        file.write(entry)
 
 
     ##########################################################################
