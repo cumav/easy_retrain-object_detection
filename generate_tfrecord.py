@@ -79,6 +79,9 @@ def create_tf_example(group, path):
 
 def main(_):
     for directory in ["train", "test"]:
+        # make if not existent
+        if not os.path.exists("./out"):
+            os.makedirs("./out")
         writer = tf.python_io.TFRecordWriter("out/{}.record".format(directory))
         path = os.path.join("images", directory)
         examples = pd.read_csv("data/{}_labels.csv".format(directory))
@@ -90,9 +93,6 @@ def main(_):
             writer.write(tf_example.SerializeToString())
 
         writer.close()
-        # make if not existent
-        if not os.path.exists("./out"):
-            os.makedirs("./out")
         output_path = os.path.join(os.getcwd(), "out/{}.record".format(directory))
         print('Successfully created the TFRecords: {}'.format(output_path))
 
